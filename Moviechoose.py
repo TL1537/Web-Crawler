@@ -17,24 +17,18 @@ def moviecase(html, movielist, num):
     for divs in soup.find_all('div', class_ = 'hd'):
         movieli = divs('span') 
         movielist.append(movieli[0].string)
-    for i in range(num):
-        print(movielist[i])
 
 def starcase(html, starlist, num):
     soup = BeautifulSoup(html, 'html.parser')
     for ps in soup.find_all('div', class_ = 'star'):
         starlis = ps('span') 
         starlist.append(starlis[1].string)
-    for i in range(num):
-        print(starlist[i] + '分')
 
 def quotecase(html, quotelist, num):
     soup = BeautifulSoup(html, 'html.parser')
     for ps in soup.find_all('p', class_ = 'quote'):
         quotelis = ps('span') 
         quotelist.append(quotelis[0].string)
-    for i in range(num):
-        print(quotelist[i])
 
 def version():
     print('Getdouban-2.2')
@@ -52,14 +46,18 @@ count = eval(input('您共需要几项功能：'))
 for i in range(count):
     choose.append(input('请选择你需要的功能：'))
 num = eval(input('请输入要显示的电影数量'))
-if '0' in choose:
-    moviecase(html, movielist, num)
+for time in range(num):
+    if '0' in choose:
+        moviecase(html, movielist, num)
+        print(movielist[time])
 
-if '6' in choose:
-    starcase(html, starlist, num)
+    if '6' in choose:
+        starcase(html, starlist, num)
+        print(starlist[time] + '分')
 
-if '7' in choose:
-    quotecase(html, quotelist, num)
+    if '7' in choose:
+        quotecase(html, quotelist, num)
+        print(quotelist[time])
 
-if '8' in choose:
-    version()
+    if '8' in choose:
+        version()
