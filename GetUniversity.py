@@ -23,7 +23,6 @@ def fillUnivList(ulist, html):
         # [tag是‘bs4.element.Tag’的实例对象，或者说tag的数据类型是bs4.element.Tag]
         # isinstance(object, classinfo)其中object是实例对象，classinfo可以是直接或间接类名、基本类型或者由它们组成的元组。
         # [使用方法：如果对象的类型与参数二的类型（classinfo）相同则返回 True，否则返回 False。]
-        print(type(trs))
         if isinstance(trs, bs4.element.Tag): 
             tds = trs('td') #？
             ulist.append([tds[0].string, tds[1].string, tds[3].string]) # ？
