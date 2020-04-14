@@ -71,8 +71,10 @@ playlist = []
 print('1.源外语名 ' + '2.其他译名 ' + '3.是否可播放 ' + '4.演员 ' + '5.时间地区和标签 ' + '6.评分 ' + '7.经典语录 ' + '8.显示版本')
 choose = ['0']
 count = eval(input('您共需要几项功能：'))
+
 for i in range(count):
     choose.append(input('请选择你需要的功能：'))
+templast = max(choose) #确定换行的标题
 num = eval(input('请输入要显示的电影数量：'))
 
 #------------------------
@@ -84,44 +86,56 @@ num = eval(input('请输入要显示的电影数量：'))
 #     str(tempcount)
 #-----------------------
 
-
-if '0' in choose:
-    print('电影名', end='')
-if '1' in choose:
-    print('源外语名', end='')
-if '2' in choose:
-    print('其他译名', end='')
-if '3' in choose:
-    print('能否播放', end='')
-if '6' in choose:
-    print('评分', end='')
-if '7' in choose:
-    print('经典语录')
+# 显示标题
+if '0' in choose and '0' not in templast:
+    print('{:^20}\t'.format('电影名'), end='')
+elif '0' in choose and templast:
+    print('{:^20}\t'.format('电影名'))
+if '1' in choose and '1' not in templast:
+    print('{:^20}\t'.format('源外语名'), end='')
+elif '1' in choose and templast:
+    print('{:^20}\t'.format('源外语名'))
+if '2' in choose and '2' not in templast:
+    print('{:^20}\t'.format('其他译名'), end='')
+elif '2' in choose and templast:
+    print('{:^20}\t'.format('其他译名'))
+if '3' in choose and '3' not in templast:
+    print('{:^20}\t'.format('能否播放'), end='')
+elif '3' in choose and templast:
+    print('{:^20}\t'.format('能否播放'))
+if '6' in choose and '6' not in templast:
+    print('{:^20}\t'.format('评分'), end='')
+elif '6' in choose and templast:
+    print('{:^20}\t'.format('评分'))
+if '7' in choose and '7' not in templast:
+    print('{:^20}\t'.format('经典语录'), end='')
+elif '7' in choose and templast:
+    print('{:^20}\t'.format('经典语录'))
 
 for time in range(num):
     if '0' in choose:
         moviecase(movielist)
-        print(movielist[time] + ' ', end='')
+        print('{:^20}\t'.format(movielist[time]), end='')
 
     if '1' in choose:     
         foreign_moviecase(foreign_movielist)
-        print(foreign_movielist[time] + ' ', end='')
+        print('{:^20}\t'.format(foreign_movielist[time]), end='')
 
     if '2' in choose:        
         other_moviecase(other_movielist)
-        print(other_movielist[time] + ' ', end='')
+        print('{:^20}\t'.format(other_movielist[time]), end='')
 
     if '3' in choose:        
         playcase(playlist)
-        print(playlist[time] + ' ', end='')
+        print('{:^20}\t'.format(playlist[time]), end='')
 
     if '6' in choose:        
         starcase(starlist)
-        print(starlist[time] + '分 ', end='')
+        print('{:^20}\t'.format(starlist[time] + '分'), end='')
 
     if '7' in choose:        
         quotecase(quotelist)
-        print(quotelist[time] + ' ')
+        print('{:^20}\t'.format(quotelist[time]))
 
 if '8' in choose:
     version()
