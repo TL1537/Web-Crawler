@@ -26,6 +26,7 @@ def filter(html, pages, code):
 def main():
     pages = 0
     print('起床干活啦')
+    print('==========================================================')
     url = 'https://movie.douban.com/top250?start={}&filter='
     urls = [url.format(num * 25) for num in range(10)]
     for i in urls:
