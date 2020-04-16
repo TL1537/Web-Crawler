@@ -17,8 +17,8 @@ def filter(html, pages, code):
     soup = BeautifulSoup(html, 'html.parser')
     print('第{}页的状态码为'.format(pages) + code)
     for divs in soup.find_all('div', class_ = 'hd'):
+        name = divs.find(class_ = 'title').text
         tag = divs.find('a')
-        name = tag.find(class_ = 'title').text
         herf = tag['href']    
         print(name, herf)
     print('==========================================================')
